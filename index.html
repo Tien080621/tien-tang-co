@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tớ có điều muốn nói...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 400px;
+    }
+    .hidden { display: none; }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff7e67;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #ff4f3c;
+    }
+    img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      transition: all 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img id="image" src="https://i.pinimg.com/originals/47/72/76/4772760157266b101aa9a5e5aeb44c33.gif" alt="Ảnh cute">
+    <h2 id="text">Ảnh có điều này muốn nói với cổ...</h2>
+    <button onclick="nextStep()">Tiếp theo</button>
+  </div>
+
+  <script>
+    const steps = [
+      { text: "Chị ơi, em suy nghĩ mấy hôm rồi...", img: "step1.png" },
+      { text: "Cổ biết cổ đẹp, cổ biết cổ dễ thương...", img: "step2.png" },
+      { text: "Mà cổ đâu biết... có người thích cổ nhiều lắm luôn á 😳", img: "step3.png" },
+      { text: "Em không biết bắt đầu từ lúc nào...", img: "https://i.pinimg.com/originals/47/72/76/4772760157266b101aa9a5e5aeb44c33.gif" },
+      { text: "Nhưng mà là ...", img: "https://i.pinimg.com/originals/47/72/76/4772760157266b101aa9a5e5aeb44c33.gif" },
+      { text: "Em thích chị mất rùiiiiii 💖", img: "https://i.pinimg.com/originals/47/72/76/4772760157266b101aa9a5e5aeb44c33.gif" }
+    ];
+    let current = 0;
+    function nextStep() {
+      const text = document.getElementById("text");
+      const image = document.getElementById("image");
+      if (current < steps.length) {
+        text.innerText = steps[current].text;
+        image.src = steps[current].img;
+        current++;
+      } else {
+        document.querySelector("button").style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
